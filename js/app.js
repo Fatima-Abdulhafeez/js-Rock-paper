@@ -1,48 +1,64 @@
-/*-------------------------------- Constants --------------------------------*/
+/*------------ Constants ------------------*/
+const choice = ['rock', 'paper', 'scissors']
 
-const choices = ['rock', 'paper', 'scissors'];
 
-/*-------------------------------- Variables --------------------------------*/
+/*------------- Variables -----------------*/
+let msg
+let playerChoice
+let computerChoice
 
-let playerChoice;
-let computerChoice; 
-let msg;
 
-/*------------------------ Cached Element References ------------------------*/
+/*------ Cached Element References ---------*/
+const rockBtnEl = document.querySelector('#rock')
+const paperBtnEl = document.querySelector('#paper')
+const scissorsBtnEl = document.querySelector('#scissors')
+const resultDisplayEl = document.querySelector('#result-display')
 
-const rockbtn = document.querySelector("#rock");
-console.log(rockbtn);
-const paperbtn = document.querySelector("#paper");
-console.log(paperbtn);
-const secisorbtn = document.querySelector("#scissors");
-console.log(secisorbtn);
 
-/*-------------------------------- Functions --------------------------------*/
-function getComputerChoice(){
-    //genarate random nuber 0-2 for array
-    const ransomIndex = Math.floor(Math.random()*choices.length);
-    
-    console.log(ransomIndex)
-    // selects the item from the array
-
+/*-------- Functions -----------------------*/
+function getComputerChoice() {
+    // generate a random number 0-2
+    const randomIndex = Math.floor(Math.random() * choice.length)
+    // select the item from the array
+    return choice[randomIndex]
 }
 
-getComputerChoice();
-
-function play(){
-    
-    computerChoice = getComputerChoice();
-    console.log(computerChoice);
-    getComputerChoice();
-    console.log("co",computerChoice);
-    //after updating state, render to html
+// initialize game state
+function play() {
+    computerChoice = getComputerChoice()
+    playerChoice = event.target.id
+    // after updating state, render to html
+    compare()
     render()
 }
-play();
 
-//updates our ui 
-function render(){
 
+// updates our UI/html directly
+function render() {
+    resultDisplayEl.textContent = `Computer chose ${computerChoice} 
+    and you chose ${playerChoice}.${msg}`
 }
 
-/*----------------------------- Event Listeners -----------------------------*/
+function compare(){
+  //compare 
+  if(playerChoice === computerChoice)
+    msg= "you are tied";
+  else if (playerChoice === choice[0]&& computerChoice === choice[2])
+    msg= "you win!";
+  else if(playerChoice === choice[0] && computerChoice === choice[1]
+  )
+  msg=  "computer win!";
+  else if(playerChoice === choice[1]&& computerChoice === choice[0])
+    msg=  "you win!";
+  else if(playerChoice === choice[1]&& computerChoice === choice[2])
+    msg=  "computer win!";
+  else if(playerChoice === choice[2]&& computerChoice === choice[0])
+    msg=  "computer win!";
+  else if(playerChoice === choice[2] && computerChoice === choice[1])
+    msg=  "you win";
+}
+
+/*--------- Event Listeners ----------------*/
+rockBtnEl.addEventListener('click', play)
+paperBtnEl.addEventListener('click', play)
+scissorsBtnEl.addEventListener('click', play)
