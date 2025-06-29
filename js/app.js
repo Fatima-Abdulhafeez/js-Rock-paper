@@ -13,6 +13,7 @@ const rockBtnEl = document.querySelector('#rock')
 const paperBtnEl = document.querySelector('#paper')
 const scissorsBtnEl = document.querySelector('#scissors')
 const resultDisplayEl = document.querySelector('#result-display')
+const restElementbtn = document.querySelector('#resetButton')
 
 
 /*-------- Functions -----------------------*/
@@ -58,7 +59,15 @@ function compare(){
     msg=  "you win";
 }
 
+function resetGame(){
+    resultDisplayEl.textContent="";
+    playerChoice=null;
+    computerChoice=null;
+    
+}
+
 /*--------- Event Listeners ----------------*/
 rockBtnEl.addEventListener('click', play)
 paperBtnEl.addEventListener('click', play)
 scissorsBtnEl.addEventListener('click', play)
+restElementbtn.addEventListener('click',resetGame)
