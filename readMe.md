@@ -1,6 +1,6 @@
 # ✊✋✌️ Rock, Paper, Scissors
 
-![Game Screenshot](./assets/screenshot.png)
+![Game Screenshot](./assets/image.png)
 
 ## 🕹️ Description
 
@@ -10,7 +10,7 @@ The game compares the choices and shows who wins. First to 5 points wins the mat
 
 ## 🚀 Getting Started
 
-👉 **Play it here:** [https://your-deployment-link.com](https://fatima-abdulhafeez.github.io/js-Rock-paper/)
+👉 **Play it here:** [https://game](https://fatima-abdulhafeez.github.io/js-Rock-paper/)
 
 👉 **Planning Materials:**
 - [User Stories](./planning/user-stories.md)
